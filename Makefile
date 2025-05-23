@@ -47,6 +47,11 @@ SRCS += ft_putstr_fd.c
 SRCS += ft_putendl_fd.c
 SRCS += ft_putnbr_fd.c
 
+SRCS += ft_printf.c
+SRCS += ft_printf_parsing.c
+SRCS += ft_printf_utils.c
+SRCS += ft_printf_utils_hex.c
+
 SRCS_B = ft_lstnew_bonus.c
 SRCS_B += ft_lstadd_front_bonus.c
 SRCS_B += ft_lstsize_bonus.c
@@ -56,6 +61,7 @@ SRCS_B += ft_lstdelone_bonus.c
 SRCS_B += ft_lstclear_bonus.c
 SRCS_B += ft_lstiter_bonus.c
 SRCS_B += ft_lstmap_bonus.c
+
 
 OBJS = $(SRCS:.c=.o)
 OBJS_B = $(SRCS_B:.c=.o)

@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <limits.h>
 
+#include <stdarg.h>
+
 typedef struct s_list
 {
 	void			*content;
@@ -74,5 +76,21 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del) (void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+							/*Printf*/
+
+int		ft_printf(const char *format, ...);
+
+						/*Parse*/
+int		parse_input(const char *format, va_list args, int length);
+void	parse_conversions(const char *format, va_list args, int *length);
+
+					/*Helper Functions*/
+void	ft_putchar(int c, int	*length);
+void	ft_putstr(char *str, int *length);
+void	ft_put_nbr(int n, int *length);
+void	ft_put_uns(unsigned int n, int *length);
+void	ft_put_hex(unsigned long long n, char letter, int *length);
+void	ft_put_adr(unsigned long long pointer, int *length);
 
 #endif
