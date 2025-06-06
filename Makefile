@@ -1,4 +1,4 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,7 +6,7 @@
 #    By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/07 17:24:13 by frocha-b          #+#    #+#              #
-#    Updated: 2025/04/18 12:56:08 by frocha-b         ###   ########.fr        #
+#    Updated: 2025/06/06 11:27:22 by frocha-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,10 +47,10 @@ SRCS += ft_putstr_fd.c
 SRCS += ft_putendl_fd.c
 SRCS += ft_putnbr_fd.c
 
-SRCS += ft_printf.c
-SRCS += ft_printf_parsing.c
-SRCS += ft_printf_utils.c
-SRCS += ft_printf_utils_hex.c
+SRCS += ft_printf/ft_printf.c
+SRCS += ft_printf/ft_printf_parsing.c
+SRCS += ft_printf/ft_printf_utils.c
+SRCS += ft_printf/ft_printf_utils_hex.c
 
 SRCS_B = ft_lstnew_bonus.c
 SRCS_B += ft_lstadd_front_bonus.c
@@ -70,10 +70,9 @@ CC     = cc
 CFLAGS = -Wall -Werror -Wextra
 LIBC   = ar -rcs
 RM     = rm -f
-INCS   = .
 
 .c.o :
-	${CC} ${FLAGS} -c $< -o ${<:.c=.o} -I${INCS}
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME) : $(OBJS)
 	${LIBC} $(NAME) $(OBJS)
@@ -87,6 +86,6 @@ clean :
 	 rm -f $(OBJS) $(OBJS_B)
 
 fclean : clean
-	rm -f $(NAME) $(bonus)
-
+	rm -f $(NAME)
+	
 re : fclean all
